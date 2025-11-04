@@ -10,6 +10,9 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: upper 
         steps:
             - run: pwd && ls -al
             - uses: actions/checkout@v4
@@ -18,6 +21,8 @@ jobs:
             - uses: actions/setup-go@v5
               with:
                 go-version: '1.22'
+                cache: true
+                cache-dependency-path: upper/go.sum
             # - run: go mod init
             - run: go version
             - run: go build
