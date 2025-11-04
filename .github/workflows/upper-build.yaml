@@ -21,8 +21,9 @@ jobs:
             - run: go version
             - run: go build
             - run: |
-            ls
-            go build
-            ls
-            go test
-            ./upper foo the bar
+                ls
+                go build
+                ls
+                go test
+                ./upper foo the bar
+              working-directory: upper
